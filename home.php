@@ -3,13 +3,8 @@ session_start();
 if (!isset($_SESSION['username'])) {
   header("location:index.php");
 }
-if (empty($_SESSION['count'])) {
-  $_SESSION['count'] = 1;
-} else {
-  $_SESSION['count']++;
-}
-include 'uploadpic.php';
 
+include 'uploadpic.php';
 include 'filesLogic.php';
 
 ?>
@@ -34,7 +29,7 @@ include 'filesLogic.php';
   <nav class="navbar navbar-expand-md" id="navbar">
     <div class="collapse navbar-collapse" id="navbar">
       <div class="navbar-nav">
-        <a href="profile.php" class="nav-item nav-link"><img class="rounded-circle" id="img" src="uploads/<?php echo $_SESSION['filename'] ?>" alt="..." /></a>
+        <a href="profile.php" class="nav-item nav-link"><img class="rounded-circle" id="img" src="uploads/<?php echo $_SESSION['filename'] ?>" /></a>
         <a href="home.php" class="nav-item nav-link active">Home</a>
         <a href="profile.php" class="nav-item nav-link">Profile</a>
       </div>

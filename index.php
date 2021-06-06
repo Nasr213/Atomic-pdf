@@ -29,6 +29,8 @@
           </div>
           <button type="submit" class="btn btn-primary ">Login</button>
           <button type="submit" href="" onclick="show();">Dont have an account ?</button>
+          <?php if (isset($_GET['loginError'])) { ?>
+          <div id="me" class="alert alert-danger"> <?= $_GET['loginError']  ?> </div> <?php }  ?>
         </form>
         <div class="position-relative mess ">
     <?php if (isset($_GET['errorMessage'])) { ?>

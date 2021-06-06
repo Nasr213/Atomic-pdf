@@ -29,7 +29,7 @@ if(isset($_POST['save']))
     else {
         if(move_uploaded_file($file,$destination))
         {
-            $sql ="insert into files (name,size,downloads,owner) values ('$filename','$size',0,'$name')";
+            $sql ="insert into files (name,size,downloads,owner) values ('$filename','$size','0','$name')";
             if(mysqli_query($con,$sql))
             {
                 echo"files uploaded";
@@ -42,7 +42,6 @@ if(isset($_POST['save']))
         }
     }
 }
-
 if (isset($_GET['file_id']))
 {
     $id = $_GET['file_id'];
@@ -50,18 +49,14 @@ if (isset($_GET['file_id']))
     $result=mysqli_query($con,$sql);
     $file=mysqli_fetch_assoc($result);
     $filepath='uploads/' . $file['name'];
+    $name= $file['name'];
     if(file_exists($filepath))
     {
-        header('Content-Type: application/octet-stream');
-        header('Content-Description: file Transfer');
-        header('Content-Disposition: attachment; filename='. basename($filepath));
-        header('Expires: 0');
-        header('Cache-Control:must-revalidate');
-        header('pragma:public');
-        header('Content-Length:' . filesize('uploads/' . $file['name']));
+        header('Content-Type: application/pdf');      
+        header('Content-Disposition:attachment;filename="' .$file['name'] . '"');
+  
         readfile('uploads/' .$file['name']);
-
-        $Count=$file['downloads'] + 1 ;
+        $Count=$file['downloads'] +1 ;
         $updateQuery = "Update files set downloads=$Count where id=$id";
         mysqli_query($con,$updateQuery);
         exit;

@@ -13,7 +13,7 @@ if($num == 1){
     header( "location:index.php?errorMessage=Email Already Used" );
 }
 else{
-    $reg="insert into usertable(name,email,password) values ('$name','$email','$pass')";
+    $reg="insert into usertable(name,email,password,profilepic) values ('$name','$email','$pass','avatar.jpg')";
     mysqli_query($con,$reg);
     header( "location:index.php?validMessage=Registration successful" );
     

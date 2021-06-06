@@ -25,6 +25,6 @@ setInterval(function myFunction() {
     document.getElementById("lg").style.display = "none";
     document.getElementById("reg").style.display = "block";
   }
- 
+
 
     

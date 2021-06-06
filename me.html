@@ -1,12 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("location:index.php");
-};
-ob_start();
-include 'uploadpic.php';
-include 'filesLogic.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +25,7 @@ include 'filesLogic.php';
     <div class="container bootstrap snippet">
         <div class="row">
             <div class="col-sm-3">
-                <h1><?php echo  $_SESSION['username']; ?></h1>
+                <h1>me</h1>
             </div>
         </div>
         <div class="d-flex justify-content-between">
@@ -43,7 +34,7 @@ include 'filesLogic.php';
 
                 <form action="profile.php" method="post" enctype="multipart/form-data">
                     <div class="text-center">
-                        <img id="myImg" src="uploads/<?php echo $_SESSION['filename']; ?>" class="avatar img-circle img-thumbnail" >
+                        <img id="myImg" src="uploads/twt.jpg" class="avatar img-circle img-thumbnail" >
                         <h6>Upload a different photo...</h6>
 
                         <input type="file" class="text-center center-block file-upload" name="myfile">
@@ -54,41 +45,37 @@ include 'filesLogic.php';
                 </hr><br>
                 <ul class="list-group">
                     <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> <?php echo $num ?></li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Downloads</strong></span> <?php echo $sum ?> </li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 2</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Downloads</strong></span> 7 </li>
                 </ul>
 
             </div>
 
             <!--/col-3-->
             <div class="col-sm-9 row">
-                <?php foreach ($images  as $file) { ?>
-                    <div class="col-lg-3 col-md-4 mb-2">
+                                    <div class="col-lg-3 col-md-4 mb-2">
                         <div class="card h-50">
                             <div class="embed-responsive embed-responsive-1by1">
-                                <iframe class="embed-responsive-item" src="uploads/<?php echo $file['name']; ?>"></iframe>
+                                <iframe class="embed-responsive-item" src="uploads/twt.jpg"></iframe>
                             </div>
                             <div class="card-body">
-                                <p class="card-text"><?php echo $file['name']; ?></p>
-                                <h4 class="card-title"><a href="#!"><?php echo $file['owner']; ?></a></h4>
+                                <p class="card-text">twt.jpg</p>
+                                <h4 class="card-title"><a href="#!">me</a></h4>
                                 </div>
                         </div>
                     </div>
-                <?php } ?>
-                <?php foreach ($myfiles as $file) { ?>
-            <div class="col-lg-3 col-md-4 mb-2">
+                                            <div class="col-lg-3 col-md-4 mb-2">
               <div class="card h-70">
                 <img src="https://archivengines.files.wordpress.com/2018/08/pdf-logo-telechargement.png" alt="connection problem">
                 <div class="card-body">
-                  <p class="card-text"><?php echo $file['name']; ?></p>
-                  <h4 class="card-title"><a  href="<?php echo $file['owner']; ?>.html"><?php echo $file['owner']; ?></a></h4>
-                  <a href="profile.php?file_id=<?php echo $file['id'] ?>"><button style=" background-color: DodgerBlue" class="btn"><i class="fa fa-download" action="post"></i> Download</button></a>
+                  <p class="card-text">SérieN°2(Premiers,Suivants).pdf</p>
+                  <h4 class="card-title"><a  href="me.html">me</a></h4>
+                  <a href="profile.php?file_id=11"><button style=" background-color: DodgerBlue" class="btn"><i class="fa fa-download" action="post"></i> Download</button></a>
                 </div>
-                <div class="card-footer"><small class="text-muted">Donwloaded <?php echo $file['downloads']; ?> times </small></div>
+                <div class="card-footer"><small class="text-muted">Donwloaded 7 times </small></div>
               </div>
             </div>
-          <?php } ?>
-
+          
 
 
             </div>
@@ -97,6 +84,3 @@ include 'filesLogic.php';
 </body>
 
 </html>
-<?php 
-file_put_contents($_SESSION['username'].'.html', ob_get_contents());
-?>
