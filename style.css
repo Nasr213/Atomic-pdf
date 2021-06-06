@@ -1,0 +1,88 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(
+    315deg,
+    #ff3cac 0%,
+    #784ba0 33%,
+    #2b86c5 66%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.login-box {
+  max-width: 700px;
+  float: none;
+  margin: 150px;
+}
+.login {
+  background-color: rgba(216, 191, 216, 0.7);
+  padding: 30px;
+  border-radius: 30px;
+max-height:300px;
+}
+.register {
+  background-color: rgba(0, 255, 0, 0.3);
+  padding: 30px;
+  border-radius: 30px;
+  display: none;
+}
+.mess{
+  padding: 30px;
+  border-radius: 30px;
+max-height:100px;
+}
+.form-control {
+  background-color: transparent !important;
+}
+
+
+.navbar {
+  width: 100%;
+  background-color: rgb(85, 85, 85,0.3);
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(23, 42, 151);
+  border-radius: 30px;
+}
+
+.active {
+  background-color: #04AA6D;
+  border-radius: 30px;
+}
+span{
+  background-color:salmon;
+  font-weight: bold;
+}
+#img{
+  width:30px ;
+  height:30px;
+  padding: 0%;
+}
